@@ -1,12 +1,12 @@
-type Direction = "row"|"col";
-interface Steps {
-    direction?:Direction;
+type IDirection = "row"|"col";
+export interface ISteps {
+    direction?:IDirection;
 }
-interface BaseStep {
+interface IBaseStep {
     id:string;
     level?:number;
     completed?:boolean;
 }
-export interface Step extends BaseStep{
+export interface IStep extends IBaseStep{
     name?:string;
 }

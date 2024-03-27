@@ -1,10 +1,21 @@
 import React from 'react'
+import { IStep, ISteps } from './types'
+import Step from './Step';
 
-type Props = {}
+interface Props extends ISteps{
+    config:IStep[];
+    data:string[];
+}
 
-const StepWise = (props: Props) => {
+const StepWise = ({config, direction:flexDirection}: Props) => {
   return (
-    <div>StepWise</div>
+    <div style={{display:"flex", flexDirection}}>
+        {
+            config.map(
+                ({id,...stp})=><Step {...stp} id={id} key={id}/>
+            )
+        }
+    </div>
   )
 }
 
