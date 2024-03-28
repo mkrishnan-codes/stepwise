@@ -1,11 +1,17 @@
-import React from 'react'
-import { IStep } from './types'
+import React from "react";
+import { Direction, IStep, LabelPlacement, StepProps } from "./types";
+import Previous from "./Previous";
+import Next from "./Next";
+import Node from "./Node";
 
-
-const Step = (props: IStep) => {
+const Step = <T extends Direction>(props: StepProps<T>) => {
   return (
-    <div>Step</div>
-  )
-}
+    <div style={{display:"flex"}}>
+      <Previous  {...props}/>
+      <Node {...props}/>
+      <Next {...props} />
+    </div>
+  );
+};
 
-export default Step
+export default Step;
